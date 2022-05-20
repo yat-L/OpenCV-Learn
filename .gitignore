@@ -130,3 +130,6 @@ dmypy.json
 
 #undotree
 *.~undo-tree~
+
+#screenshot
+screenShot*
