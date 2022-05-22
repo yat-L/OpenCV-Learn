@@ -1,3 +1,4 @@
+import Converter as Con
 import cv2 as cv
 
 
@@ -13,10 +14,12 @@ def main():
         print(f'Fame Count is: {frameCount}')
 
 
+    convert = Con.Converter()
     while webCam.isOpened():
         available, frame = webCam.read()
         if available:
-            result = convertAndShow(frame, 60, 0.07, 0.1, 5, 0)
+            result = convert.show(frame)
+            #result = convertAndShow(frame, 60, 0.07, 0.1, 5, 0)
 
             quitKey = cv.pollKey()
             if quitKey == ord('q'):  # break when pressed 'q'
