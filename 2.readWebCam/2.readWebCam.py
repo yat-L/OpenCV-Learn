@@ -1,4 +1,5 @@
 import Converter as Con
+import Sliders
 import cv2 as cv
 
 
@@ -14,12 +15,17 @@ def main():
         print(f'Fame Count is: {frameCount}')
 
 
-    convert = Con.Converter()
+    frameName = "Pencil Invert"
+    cv.namedWindow(frameName)
+    Imgfilter = Con.Converter()
+    trackBar = Sliders.Sliders(frameName)
     while webCam.isOpened():
         available, frame = webCam.read()
         if available:
-            result = convert.show(frame)
-            #result = convertAndShow(frame, 60, 0.07, 0.1, 5, 0)
+            #cv.imshow('frame', frame)
+            #result = Imgfilter.convert(frame)
+            result = trackBar.showFrame(frame)
+            cv.imshow(frameName, result)
 
             quitKey = cv.pollKey()
             if quitKey == ord('q'):  # break when pressed 'q'
@@ -31,12 +37,7 @@ def main():
                 break
 
 
-def convertAndShow(frame, sigmaS, sigmaR, shade, blurKer, SigmaXY):
-            frame = cv.GaussianBlur(frame, (blurKer,blurKer), SigmaXY)
-            sk_gray, sk_color = cv.pencilSketch(frame, sigma_s=sigmaS, sigma_r=sigmaR, shade_factor=shade) # pencil effect
-            result = cv.bitwise_not(sk_gray) # invert the color
-            cv.imshow('Frame',result)
-            return result
+
 
 
 

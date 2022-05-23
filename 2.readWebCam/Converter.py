@@ -50,9 +50,8 @@ class Converter(object):
         self._sigmaXY = value
 
 
-    def show(self,frame): 
+    def convert(self,frame): 
             temp = cv.GaussianBlur(frame, (self._blurKer,self._blurKer), self._sigmaXY)
             sk_gray, sk_color = cv.pencilSketch(temp, sigma_s=self._sigmaS, sigma_r=self._sigmaR, shade_factor=self._shade) # pencil effect
             result = cv.bitwise_not(sk_gray) # invert the color
-            cv.imshow('Frame',result)
             return result
