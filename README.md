@@ -1,4 +1,4 @@
 # OpenCV-Learn
 Repo for learning OpenCV in Python
 
-![alt text](demo.jpb)
+![alt text](images/demo.jpb)
