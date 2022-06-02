@@ -15,6 +15,7 @@ def display(tupleChannel):
     (A,B,C) = tupleChannel
 
     A_H = B_H = B_H = None
+
     A_H = cv.resize(A,(0,0),None,0.35,0.35)
     B_H = cv.resize(B,(0,0),None,0.35,0.35)
     C_H = cv.resize(C,(0,0),None,0.35,0.35)
